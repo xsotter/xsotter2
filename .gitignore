@@ -38,8 +38,6 @@ proguard/
 captures//captures
 
 
-
-
 ## Android Studio defaults
 .gradle
 /local.properties
@@ -48,3 +46,13 @@ captures//captures
 .DS_Store
 /build
 /captures
+
+
+# Crashlytics files
+com_crashlytics_export_strings.xml
+manifest.txt
+crashlytics.keystore.properties
+crashlytics-build.properties
+
+# Fabric files
+fabric.properties
