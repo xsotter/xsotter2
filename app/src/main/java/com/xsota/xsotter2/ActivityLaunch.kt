@@ -11,7 +11,11 @@ import com.twitter.sdk.android.core.TwitterException
 import com.twitter.sdk.android.core.TwitterSession
 import com.twitter.sdk.android.core.identity.TwitterLoginButton
 
-class MainActivity : AppCompatActivity() {
+/**
+ * アプリ起動時に実行される
+ * Twitterのログイン状態により、次に実行するActivityが変わる
+ */
+class ActivityLaunch : AppCompatActivity() {
 
     private val loginButton: TwitterLoginButton by lazy {
         findViewById(R.id.twitter_login_button) as TwitterLoginButton
