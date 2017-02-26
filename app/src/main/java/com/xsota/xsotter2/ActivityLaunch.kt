@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
+import com.twitter.sdk.android.Twitter
 import com.twitter.sdk.android.core.Callback
 import com.twitter.sdk.android.core.Result
 import com.twitter.sdk.android.core.TwitterException
@@ -21,11 +23,20 @@ class ActivityLaunch : AppCompatActivity() {
         findViewById(R.id.twitter_login_button) as TwitterLoginButton
     }
 
+    private val textView: TextView by lazy {
+        findViewById(R.id.text) as TextView
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
+
+        if (Twitter.getSessionManager().activeSession == null){
+            textView.text = "ログインしてない"
+        } else {
+            textView.text = "ログインしてる"
+        }
 
         loginButton.callback = object : Callback<TwitterSession>() {
             override fun success(result: Result<TwitterSession>) {
